@@ -3,6 +3,8 @@ os:
   - windows
 node_js:
   - 18.18.0
+addons:
+  chrome: stable
 cache:
   directories:
     - node_modules
