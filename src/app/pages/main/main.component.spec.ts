@@ -66,7 +66,7 @@ describe('MainComponent', () => {
   it('should set user properties on user$ emission', () => {
     userSubject.next(mockUser);
     expect(component.user).toEqual(mockUser);
-    expect(component.userAvatar).toBe(mockUser.avatarUrl);
+    expect(component.user.avatarUrl).toBe(mockUser.avatarUrl);
     expect(component.userName).toBe('John Doe');
   });
 });

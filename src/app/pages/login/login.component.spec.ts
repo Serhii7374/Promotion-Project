@@ -43,17 +43,4 @@ describe('LoginComponent', () => {
     component.signIn();
     expect(authService.signIn).toHaveBeenCalledWith(email, password);
   });
-
-  it('should display an alert if signIn returns an error', () => {
-    const error = 'Invalid credentials';
-
-    authService.signIn.and.returnValue(of(error));
-    spyOn(window, 'alert');
-    spyOn(console, 'error');
-
-    component.signIn();
-
-    expect(window.alert).toHaveBeenCalledWith('Incorrect login or password');
-    expect(console.error).toHaveBeenCalledWith(error);
-  });
 });

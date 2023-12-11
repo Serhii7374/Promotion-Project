@@ -13,5 +13,4 @@ export default defineConfig({
     },
     specPattern: '**/*.cy.ts'
   }
-
 });
