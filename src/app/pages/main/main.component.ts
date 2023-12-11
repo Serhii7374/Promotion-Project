@@ -16,7 +16,6 @@ export class MainComponent {
   protected readonly AVATAR = AVATAR;
 
   userName: string = '';
-  userAvatar: string = '';
   searchText: string = '';
   user!: IUserData;
   constructor(private auth: AuthService, private articleService: ArticleService, private router: Router) {
@@ -29,7 +28,6 @@ export class MainComponent {
       .subscribe((user) => {
         if (user) {
           this.user = user;
-          this.userAvatar = user.avatarUrl;
           this.userName = (user.firstName ? user.firstName : '') + (user.lastName ? ' ' + user.lastName : '');
         }
       });

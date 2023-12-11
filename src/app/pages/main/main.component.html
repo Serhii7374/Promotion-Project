@@ -14,7 +14,7 @@
     </section>
 
     <section class="profile-section">
-        <img class="profile-img" [src]="userAvatar || AVATAR"/>
+        <img class="profile-img" [src]="user.avatarUrl || AVATAR"/>
         <button mat-button class="profile-menu" [matMenuTriggerFor]="menu" id="profile-btn">
           <div class="profile-menu__btn">
             <p>{{userName}}</p>

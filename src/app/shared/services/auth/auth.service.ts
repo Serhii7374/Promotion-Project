@@ -60,6 +60,7 @@ export class AuthService {
     this.afFirestore.collection('users').ref.where('uid', '==', uid).onSnapshot(
       snap => {
         snap.forEach(userRef => {
+          this.userSubject.next(userRef.data() as IUserData);
           localStorage.setItem('user', JSON.stringify(userRef.data()));
           this.router.navigate(['']);
         });
