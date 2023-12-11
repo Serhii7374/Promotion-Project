@@ -1,0 +1,19 @@
+mat-card {
+  width: 600px;
+  max-width: 100%;
+  padding: 20px 35px 15px;
+  @media screen and (max-width: 800px) {
+    width: 380px;
+  }
+}
+
+mat-card-header {
+  height: 50px;
+  padding: 0;
+  display: flex;
+  align-content: center;
+}
+
+mat-card-content{
+  padding: 0;
+}

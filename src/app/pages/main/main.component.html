@@ -1,0 +1,55 @@
+<div class="wrapper">
+  <header>
+
+    <section class="logo-section">
+      <img src="../../../assets/images/logo-placeholder-dark.png" alt="logo">
+    </section>
+
+    <section class="search-section">
+      <div class="search-wrapper">
+        <i class="search-icon" (click)="search()"></i>
+        <input type="text" class="search" placeholder="Find articles..."
+               (keydown.enter)="search()" [(ngModel)]="searchText">
+      </div>
+    </section>
+
+    <section class="profile-section">
+        <img class="profile-img" [src]="userAvatar || AVATAR"/>
+        <button mat-button class="profile-menu" [matMenuTriggerFor]="menu" id="profile-btn">
+          <div class="profile-menu__btn">
+            <p>{{userName}}</p>
+            <mat-icon fontIcon="expand_more"></mat-icon>
+          </div>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/account" id="profile-edit-btn">Edit Profile</button>
+          <button mat-menu-item (click)="logout()" id="profile-logout-btn">Logout</button>
+        </mat-menu>
+    </section>
+
+  </header>
+
+  <main>
+    <aside>
+      <nav>
+        <p class="nav-title">Main Menu</p>
+        <span class="material-symbols-outlined"></span>
+        <button mat-button routerLink="/">
+          <mat-icon>home</mat-icon>
+          Dashboard
+        </button>
+      </nav>
+    </aside>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="widgets">
+
+      <div class="elfsight-app-5f119320-3a74-49c8-9dfa-769b963a857f" data-elfsight-app-lazy></div>
+
+    </div>
+  </main>
+
+</div>

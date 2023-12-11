@@ -1,0 +1,60 @@
+<mat-card>
+
+  <mat-card-header>
+    <mat-card-title>Add new article</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="form" [formGroup]="form">
+
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Enter your title" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select [(value)]="selectedCategory" formControlName="category">
+          <mat-option [value]="option" *ngFor="let option of CATEGORIES">{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Text</mat-label>
+        <textarea matInput placeholder="Enter your text copy" formControlName="text"></textarea>
+      </mat-form-field>
+
+      <div class="file-upload-wrapper">
+        <input type="file" class="file-input" (change)="onFileSelected($event)" formControlName="imageUrl" #fileUpload>
+        <div class="file-upload">
+          <button mat-mini-fab color="primary" class="upload-btn" (click)="onClick(fileUpload)" [disabled]="disabled">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+
+          <mat-form-field>
+            <input matInput placeholder="Add cover photo" [value]="fileName" [disabled]="true">
+          </mat-form-field>
+        </div>
+
+        <mat-progress-bar class="progress-bar" mode="determinate"
+                          *ngIf="(percentageChanges$ | async) as percentage"
+                          [value]="percentage">
+        </mat-progress-bar>
+      </div>
+
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button routerLink="/">Cancel</button>
+    <button mat-raised-button
+            id="create-article-btn"
+            color="primary"
+            [disabled]="!form.valid"
+            (click)="createArticle()"
+    >
+      Publish
+    </button>
+  </mat-card-actions>
+
+</mat-card>

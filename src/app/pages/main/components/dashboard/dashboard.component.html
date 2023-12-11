@@ -1,0 +1,88 @@
+<div class="dashboard">
+
+  <div class="dashboard__header">
+
+    <div class="title-section">
+      <h2>Articles Dashboard</h2>
+    </div>
+
+    <div class="category-section">
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+        <mat-select [(value)]="selectedCategory">
+          <mat-option value="All Categories" (click)="getAllArticles()">All Categories</mat-option>
+          <mat-option value="My articles" (click)="getArticles()">My articles</mat-option>
+          <mat-option value="Search result" *ngIf="search">Search result</mat-option>
+          <mat-option *ngFor="let option of CATEGORIES"
+                      [value]="option"
+                      (click)="getArticlesByCategory(option)">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="sort-section">
+      <mat-form-field>
+        <mat-label>Sort by</mat-label>
+        <mat-select [(value)]="selectedSortOption">
+          <mat-option *ngFor="let option of SORT_OPTIONS"
+                      [value]="option"
+                      (click)="sorting(option)">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="add-article-section">
+      <button mat-fab extended color="primary" routerLink="/app-add-new-article" id="add-article-btn">
+        <mat-icon>add</mat-icon>
+        Add Article
+      </button>
+    </div>
+  </div>
+
+  <div class="dashboard__content" *ngIf="(articles$ | async) as articles">
+    <div class="content-wrapper">
+      <mat-card *ngFor="let article of articles">
+        <mat-card-header>
+          <img class="article-img" [src]="article.imageUrl || DEFAULT_BACKGROUND" alt="article image">
+          <div class="edit-button" *ngIf="article.userId === this.user.uid">
+            <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu">
+              <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu #menu>
+              <button mat-menu-item>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item (click)="deleteArticle(article.id!)">
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="article-additional">
+            <p class="category">{{article.category}}</p>
+            <p class="date">{{article.date | timestamp}}</p>
+          </div>
+          <div class="article-title">{{article.title}}</div>
+          <div class="article-text">{{article.text}}</div>
+        </mat-card-content>
+        <mat-card-footer>
+          <div class="author">
+            <img class="author__img" [src]="article.userAvatar || AVATAR"/>
+            <p class="author__name">{{article.userName}}</p>
+          </div>
+          <button mat-button color="primary" class="read-more">
+            <div class="read-more__btn">
+              <p>Read more</p>
+              <mat-icon>arrow_forward</mat-icon>
+            </div>
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

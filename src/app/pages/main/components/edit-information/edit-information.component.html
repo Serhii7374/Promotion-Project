@@ -1,0 +1,25 @@
+<div class="form" [formGroup]="form">
+
+  <h3>Change your information</h3>
+
+  <mat-form-field>
+    <mat-label>First name</mat-label>
+    <input matInput placeholder="Enter your first name" formControlName="firstName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Last name</mat-label>
+    <input matInput placeholder="Enter your last name" formControlName="lastName">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Age</mat-label>
+    <input matInput placeholder="Enter your age" formControlName="age">
+  </mat-form-field>
+
+  <section class="actions">
+    <button mat-raised-button routerLink="/">Cancel</button>
+    <button mat-raised-button color="primary" (click)="saveDataToDB()">Save</button>
+  </section>
+
+</div>

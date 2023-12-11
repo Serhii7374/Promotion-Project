@@ -1,0 +1,132 @@
+.dashboard {
+  width: 100%;
+  min-width: 400px;
+
+  &__header {
+    min-height: 100px;
+    max-height: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+    @media screen and (max-width: 1050px) {
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+.content-wrapper {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.title-section .category-section .sort-section .add-article-section{
+  height: 100%;
+}
+
+.add-article-section {
+  margin-bottom: 20px;
+}
+.card-wrapper {
+  height: 500px;
+}
+
+mat-card {
+  height: 400px;
+  width: 370px;
+  //margin: 20px;
+  mat-card-header {
+    position: relative;
+    height: 40%;
+    width: 100%;
+    padding: 0;
+  }
+  mat-card-content {
+    height: 45%;
+    width: 100%;
+    padding: 15px 20px 0;
+  }
+  mat-card-footer {
+    height: 15%;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @media screen and (max-width: 800px) {
+    width: 300px;
+  }
+}
+
+.article-additional {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #6E798C;
+}
+
+.article-title {
+  width: 100%;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.read-more {
+  &__btn {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.article-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.author {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  &__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 10px;
+  }
+}
+
+.edit-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

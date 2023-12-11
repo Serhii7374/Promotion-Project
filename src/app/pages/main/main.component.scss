@@ -1,0 +1,153 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  height: 75px;
+  border-bottom: 1px solid #EAEDF3;
+  display: flex;
+}
+
+.logo-section{
+  height: 100%;
+  width: 230px;
+  border-right: 1px solid #EAEDF3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.search-section{
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.profile-section{
+  height: 100%;
+  width: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.search-wrapper {
+  position: relative;
+  margin-left: 35px;
+}
+
+.search {
+  height: 40px;
+  width: 250px;
+  max-width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  background-color: #F5F6F7;
+  padding-left: 50px;
+  &:focus {
+    box-shadow: 0 0 5px 2px lightgray;
+  }
+  @media screen and (max-width: 800px) {
+    width: 160px;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 30%;
+  left: 20px;
+  height: 15px;
+  width: 15px;
+  background-image: url('../../../assets/icons/search.png');
+  background-size: cover;
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.profile-menu {
+  &__btn {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+
+aside {
+  height: 100%;
+  min-width: 230px;
+  border-right: 1px solid #EAEDF3;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+}
+
+nav {
+  width: 180px;
+  padding: 20px 5px;
+  border-bottom: 1px solid #EAEDF3;
+}
+
+.nav-title{
+  font-weight: 500;
+  color: #6F7C8B80;
+}
+
+.main-content {
+  height: 100%;
+  width: calc(100% - 630px);
+  max-width: 100%;
+  background-color: #F5F6F7;
+  padding: 20px 0 0 0;
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 1390px) {
+    width: calc(100% - 230px);
+  }
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+.widgets{
+  width: 400px;
+  max-width: 100%;
+  background-color: #F5F6F7;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  overflow: hidden;
+  @media screen and (max-width: 1300px) {
+    display: none;
+  }
+}
+

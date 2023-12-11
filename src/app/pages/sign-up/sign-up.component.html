@@ -1,0 +1,77 @@
+<div class="wrapper">
+
+  <img class="img-side" src="../../../assets/images/sign-in-img-side.png" alt="sign-in image"/>
+
+  <div class="form-side">
+    <div class="form-wrapper">
+
+      <div class="form-title">
+        <p class="form-title__greeting">Get started today</p>
+        <p>Enter your details to create super account.</p>
+      </div>
+
+      <div class="form" [formGroup]="form">
+
+        <div class="inline-inputs">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Enter your name" formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput placeholder="Enter your age" formControlName="age">
+          </mat-form-field>
+        </div>
+
+        <mat-form-field>
+          <mat-label>Email Address</mat-label>
+          <input matInput placeholder="Enter your email address" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter your password" formControlName="password" #password>
+          <mat-error *ngIf="password.minLength">The required length of the password is 6 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Confirm new password</mat-label>
+          <input matInput placeholder="Enter your new password again" formControlName="passwordConfirm">
+        </mat-form-field>
+
+        <ng-container *ngIf="form.errors?.['passwordMismatch'] && form.controls['passwordConfirm'].touched">
+          <div class="error-form-message">
+            Passwords must match
+          </div>
+        </ng-container>
+
+        <section class="checkbox-section">
+          <mat-checkbox formControlName="policyConfirm">
+            I agree to Product
+          </mat-checkbox>
+          <a routerLink="/terms">Terms and Policy</a>
+        </section>
+
+      </div>
+
+      <button mat-raised-button color="primary" class="login-btn" (click)="singUp()"
+              [disabled]="!form.valid || !form.controls.policyConfirm.value">
+        Get started now
+      </button>
+      <div class="separator">
+        <div class="separator__line"></div>
+        <div class="separator__text">Or sign up with</div>
+        <div class="separator__line"></div>
+      </div>
+
+      <app-social-media-login></app-social-media-login>
+
+    </div>
+
+    <div class="footer">
+      Already have an account? <a class="footer__link" routerLink="/login">Login</a>
+    </div>
+  </div>
+
+</div>

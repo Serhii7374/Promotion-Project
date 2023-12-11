@@ -1,0 +1,59 @@
+<div class="wrapper">
+
+  <img class="img-side" src="../../../assets/images/login-img-side.png" alt="login image"/>
+
+  <div class="form-side">
+    <div class="form-wrapper">
+
+      <div class="wave-icon">
+        <img src="../../../assets/images/waving-hand.png" alt="waving hand"/>
+      </div>
+
+      <div class="form-title">
+        <p class="form-title__greeting">Welcome back</p>
+        <p>Sign in to manage your account.</p>
+      </div>
+
+      <div class="form" [formGroup]="form">
+
+        <mat-form-field>
+          <mat-label>Email Address</mat-label>
+          <input matInput placeholder="Enter your email address" formControlName="email">
+          <mat-error *ngIf="form.controls.email.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter your password" formControlName="password">
+        </mat-form-field>
+        <ng-container *ngIf="error">
+          <div class="error-form-message">
+            Incorrect login or password
+          </div>
+        </ng-container>
+      </div>
+
+      <a class="password-recover-link" routerLink="/password-recovery">Forgot your password?</a>
+
+      <button mat-raised-button color="primary" class="login-btn" (click)="signIn()" [disabled]="!form.valid">
+        Sign in
+      </button>
+
+      <div class="separator">
+        <div class="separator__line"></div>
+        <div class="separator__text">Or do it via other accounts</div>
+        <div class="separator__line"></div>
+      </div>
+
+      <app-social-media-login></app-social-media-login>
+
+    </div>
+
+    <div class="footer">
+      Don’t have an account? <a class="footer__link" routerLink="/sign-up">Sign Up</a>
+    </div>
+  </div>
+
+</div>
