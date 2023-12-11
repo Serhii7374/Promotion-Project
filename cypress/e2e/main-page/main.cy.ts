@@ -24,7 +24,6 @@ context('Main page', () => {
     cy.get('[formControlName=title]').type('e2e test title');
     cy.get('[formControlName=category]').click();
     cy.get('mat-option').contains('Media').click();
-    // cy.get('[formControlName=category]').select('Media');
     cy.get('[formControlName=text]').type('e2e test text');
     cy.get('#create-article-btn').click();
     cy.location('pathname').should('not.include', '/app-add-new-article');
