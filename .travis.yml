@@ -10,4 +10,4 @@ script:
   - npm run test
   - npm run cypress:run
   - npm run build
-
+  - firebase deploy --token "1//03ugbGBuzaP3lCgYIARAAGAMSNwF-L9Ir6zW1eWSLUUI1paJ2GiYO5WbJUyzXazaVdVVu4Kk--28DVTlZI5jTI_8fwfM66dZLX1M"
