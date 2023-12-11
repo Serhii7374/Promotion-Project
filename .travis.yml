@@ -12,7 +12,11 @@ cache:
 install:
   - npm install --legacy-peer-deps
 script:
+  - echo "Running tests..."
   - npm run test
+  - echo "Running Cypress..."
   - npm run cypress:run
+  - echo "Building..."
   - npm run build
+  - echo "Deploying..."
   - firebase deploy --token "1//03ugbGBuzaP3lCgYIARAAGAMSNwF-L9Ir6zW1eWSLUUI1paJ2GiYO5WbJUyzXazaVdVVu4Kk--28DVTlZI5jTI_8fwfM66dZLX1M"
