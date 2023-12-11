@@ -19,4 +19,5 @@ script:
   - echo "Building..."
   - npm run build
   - echo "Deploying..."
+  - firebase use --add promotion-project-e8793
   - firebase deploy --token "$FIREBASE_TOKEN"
