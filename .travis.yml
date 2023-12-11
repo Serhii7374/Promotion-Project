@@ -19,4 +19,4 @@ script:
   - echo "Building..."
   - npm run build
   - echo "Deploying..."
-  - firebase deploy --token "1//03ugbGBuzaP3lCgYIARAAGAMSNwF-L9Ir6zW1eWSLUUI1paJ2GiYO5WbJUyzXazaVdVVu4Kk--28DVTlZI5jTI_8fwfM66dZLX1M"
+  - firebase deploy --token "$FIREBASE_TOKEN"
