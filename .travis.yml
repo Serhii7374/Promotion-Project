@@ -1,17 +1,12 @@
 language: node_js
 os:
-  - osx
-osx_image: xcode14.2
+  - windows
 node_js:
   - 18.18.0
 addons:
   chrome: stable
-cache:
-  directories:
-#    - node_modules
-#    - /Users/travis/Library/Caches/Cypress/13.6.1/Cypress.app/Contents/MacOS/Cypress
 install:
-  - npm install --legacy-peer-deps
+  - npm install
 before_script:
   - cypress cache clear
   - npm install cypress
