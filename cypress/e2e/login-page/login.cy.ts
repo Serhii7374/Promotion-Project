@@ -1,6 +1,7 @@
 context('Login page', () => {
   beforeEach(() => {
-    cy.visit('/login');
+    cy.visit('https://promotion-project-e8793.web.app/login');
+    cy.wait(2000);
   });
 
   it('Should redirect to main page after success login', () => {

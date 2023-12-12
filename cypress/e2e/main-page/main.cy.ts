@@ -1,6 +1,19 @@
 context('Main page', () => {
+  const mockUser = {
+    email: 'email@mail.com',
+    uid: '123',
+    firstName: 'John',
+    lastName: 'Doe',
+    avatarUrl: 'avatar.jpg',
+    age: '33'
+  };
+
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit('https://promotion-project-e8793.web.app', {
+      onBeforeLoad: (win) => {
+        win.localStorage.setItem('user', JSON.stringify(mockUser));
+      },
+    });
     cy.wait(1000);
   });
 
