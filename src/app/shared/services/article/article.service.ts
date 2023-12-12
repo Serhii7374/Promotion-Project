@@ -29,7 +29,7 @@ export class ArticleService {
   }
 
   getAllArticles(): Observable<IArticle[]> {
-    if (!this.cachedAllArticles$) {
+    if (!this.cachedAllArticles$ || navigator.onLine) {
       this.cachedAllArticles$ = this.firestore.collection('articles')
         .get()
         .pipe(
@@ -46,7 +46,7 @@ export class ArticleService {
   }
 
   getArticles(uid: string): Observable<IArticle[]> {
-    if (!this.cachedMyArticles$) {
+    if (!this.cachedMyArticles$ || navigator.onLine) {
       this.cachedMyArticles$ = this.firestore.collection('articles', ref => ref
         .where('userId', '==', uid))
         .get()
