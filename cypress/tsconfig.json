@@ -1,7 +1,7 @@
 {
   "files": ["../cypress.config.ts"],
   "extends": "../tsconfig.json",
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "cypress"],
   "compilerOptions": {
     "sourceMap": false,
     "noEmit": true,
