@@ -4,6 +4,7 @@
   "include": ["**/*.ts"],
   "compilerOptions": {
     "sourceMap": false,
+    "noEmit": true,
     "types": ["cypress"]
   }
 }
