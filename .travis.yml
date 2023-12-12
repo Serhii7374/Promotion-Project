@@ -9,7 +9,7 @@ addons:
 cache:
   directories:
     - node_modules
-    - /Users/travis/Library/Caches/Cypress
+    - /Users/travis/Library/Caches/Cypress/13.6.1/Cypress.app/Contents/MacOS/Cypress
 install:
   - npm install --legacy-peer-deps
 before_script:
