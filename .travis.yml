@@ -9,8 +9,11 @@ addons:
 cache:
   directories:
     - node_modules
+    - /Users/travis/Library/Caches/Cypress
 install:
   - npm install --legacy-peer-deps
+before_script:
+  - npm install cypress --force
 script:
   - echo "Running tests..."
   - npm run test
