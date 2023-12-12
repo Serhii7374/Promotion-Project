@@ -8,12 +8,13 @@ addons:
   chrome: stable
 cache:
   directories:
-    - node_modules
-    - /Users/travis/Library/Caches/Cypress/13.6.1/Cypress.app/Contents/MacOS/Cypress
+#    - node_modules
+#    - /Users/travis/Library/Caches/Cypress/13.6.1/Cypress.app/Contents/MacOS/Cypress
 install:
   - npm install --legacy-peer-deps
 before_script:
-  - sudo npm install cypress --force
+  - cypress cache clear
+  - npm install cypress
 script:
   - npm run build
   - npm run test
