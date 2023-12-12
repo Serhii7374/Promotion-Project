@@ -5,15 +5,20 @@ node_js:
   - 18.18.0
 addons:
   chrome: stable
+env:
+  - CHROME_BIN=/usr/bin/google-chrome
+cache:
+  directories:
+    - node_modules
+    - C:\Users\travis\AppData\Local\Cypress\Cache
 install:
   - npm install
 before_script:
   - cypress cache clear
   - npm install cypress
 script:
-  - npm run build
   - npm run test
   - npm run cypress:run
-
+  - npm run build
   - firebase use --add promotion-project-e8793
   - firebase deploy --token "$FIREBASE_TOKEN"
