@@ -15,12 +15,10 @@ install:
 before_script:
   - npm install cypress --force
 script:
-  - echo "Running tests..."
-  - npm run test
-  - echo "Running Cypress..."
-  - npm run cypress:run
-  - echo "Building..."
   - npm run build
-  - echo "Deploying..."
+  - npm run test
+  - npm install cypress --force
+  - npm run cypress:run
+
   - firebase use --add promotion-project-e8793
   - firebase deploy --token "$FIREBASE_TOKEN"
