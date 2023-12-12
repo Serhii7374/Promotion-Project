@@ -6,16 +6,13 @@ node_js:
 addons:
   chrome: stable
 env:
-  - CHROME_BIN=/usr/bin/google-chrome
+  - CHROME_BIN=C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 cache:
   directories:
     - node_modules
-    - C:\Users\travis\AppData\Local\Cypress\Cache
+    - \Users\travis\AppData\Local\Cypress\Cache\13.6.1\Cypress\Cypress.exe
 install:
   - npm install
-before_script:
-  - cypress cache clear
-  - npm install cypress
 script:
   - npm run test
   - npm run cypress:run
