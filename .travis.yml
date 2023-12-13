@@ -5,6 +5,8 @@ node_js:
   - 18.18.0
 addons:
   chrome: stable
+env:
+  - CHROME_BIN=C:\Program Files\Google\Chrome\Application\chrome.exe
 cache:
   directories:
     - node_modules
