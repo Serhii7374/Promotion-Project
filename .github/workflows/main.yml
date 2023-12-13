@@ -1,6 +1,5 @@
-name: CI/CD with GitHub Actions
-
-on:
+name: Run tests
+'on':
   push:
     branches:
       - master
@@ -11,10 +10,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@master
         with:
           node-version: '18.18.0'
 
@@ -26,16 +25,3 @@ jobs:
 
       - name: Run e2e tests
         run: npm run cypress:run
-
-      - name: Build
-        run: npm run build
-
-      - name: Set Firebase Project
-        run: firebase use --add promotion-project-e8793
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
-      - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --token ${{ secrets.FIREBASE_TOKEN }}
