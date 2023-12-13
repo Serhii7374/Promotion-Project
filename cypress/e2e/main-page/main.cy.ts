@@ -14,7 +14,6 @@ context('Main page', () => {
         win.localStorage.setItem('user', JSON.stringify(mockUser));
       },
     });
-    cy.wait(1000);
   });
 
   it('Should redirect to edit-info component', () => {
