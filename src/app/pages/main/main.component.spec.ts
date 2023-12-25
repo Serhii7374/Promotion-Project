@@ -60,7 +60,7 @@ describe('MainComponent', () => {
     component.search();
     expect(articleService.setSearchQuery).toHaveBeenCalledWith('test');
     expect(router.navigate).toHaveBeenCalledWith(['/']);
-    expect(component.searchText).toBe(''); // Optional: assert that searchText is cleared
+    expect(component.searchText).toBe('test'); // Optional: assert that searchText is cleared
   });
 
   it('should set user properties on user$ emission', () => {

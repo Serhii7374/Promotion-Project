@@ -12,7 +12,7 @@ import { passwordMatchValidator } from '../../shared/password-match.validator';
 export class SignUpComponent {
 
   form = this.fb.group({
-    name: [''],
+    name: ['', Validators.required],
     age: [''],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],

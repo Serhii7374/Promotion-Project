@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { IArticle } from '../../interfaces';
+import { IArticle, IUserData } from '../../interfaces';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, of, shareReplay } from 'rxjs';
 import { convertSnaps } from '../../db-utils';
@@ -74,6 +74,23 @@ export class ArticleService {
           return of([]);
         })
       );
+  }
+
+  getArticlesById(id: string): Observable<IArticle> {
+    return this.firestore.collection('articles').doc(id)
+      .get()
+      .pipe(
+        map(result => result.data() as IArticle),
+        shareReplay(1),
+        catchError((error) => {
+          console.error('Error fetching article:', error);
+          return of();
+        })
+      );
+  }
+
+  updateArticle(id: string, article: IArticle): Promise<void> {
+    return this.firestore.collection('articles').doc(id).update(article);
   }
 
   deleteArticle(id: string): Promise<void> {

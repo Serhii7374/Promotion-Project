@@ -21,7 +21,6 @@
         </mat-select>
       </mat-form-field>
     </div>
-
     <div class="sort-section">
       <mat-form-field>
         <mat-label>Sort by</mat-label>
@@ -35,7 +34,7 @@
       </mat-form-field>
     </div>
     <div class="add-article-section">
-      <button mat-fab extended color="primary" routerLink="/app-add-new-article" id="add-article-btn">
+      <button mat-fab extended color="primary" routerLink="/add-new-article" id="add-article-btn">
         <mat-icon>add</mat-icon>
         Add Article
       </button>
@@ -52,7 +51,7 @@
               <mat-icon>more_horiz</mat-icon>
             </button>
             <mat-menu #menu>
-              <button mat-menu-item>
+              <button mat-menu-item [routerLink]="[ '/edit-article/', article.id ]">
                 <span>Edit</span>
               </button>
               <button mat-menu-item (click)="deleteArticle(article.id!)">
@@ -74,7 +73,7 @@
             <img class="author__img" [src]="article.userAvatar || AVATAR"/>
             <p class="author__name">{{article.userName}}</p>
           </div>
-          <button mat-button color="primary" class="read-more">
+          <button mat-button color="primary" class="read-more" [routerLink]="[ '/article/', article.id ]">
             <div class="read-more__btn">
               <p>Read more</p>
               <mat-icon>arrow_forward</mat-icon>

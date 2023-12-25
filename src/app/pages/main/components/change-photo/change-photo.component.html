@@ -1,6 +1,6 @@
 <div class="file-upload-wrapper">
   <h3>Change your photo</h3>
-  <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+  <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload accept=".png, .jpg, .jpeg">
   <div class="file-upload">
     <button mat-mini-fab color="primary" class="upload-btn" (click)="onClick(fileUpload)" [disabled]="disabled">
       <mat-icon>attach_file</mat-icon>

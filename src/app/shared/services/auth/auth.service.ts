@@ -96,6 +96,7 @@ export class AuthService {
         .then((userCredential) => {
           const uid = userCredential.user!.uid;
           const newUser: IUserData = { email, firstName, age, uid, lastName: '', avatarUrl: '' };
+          this.userSubject.next(newUser);
           this.addNewUserToCollection(newUser);
           observer.complete();
         })

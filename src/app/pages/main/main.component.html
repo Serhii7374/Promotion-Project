@@ -2,7 +2,7 @@
   <header>
 
     <section class="logo-section">
-      <img src="../../../assets/images/logo-placeholder-dark.png" alt="logo">
+      <img src="../../../assets/images/logo-placeholder-dark.png" alt="logo" routerLink="/">
     </section>
 
     <section class="search-section">
@@ -14,7 +14,7 @@
     </section>
 
     <section class="profile-section">
-        <img class="profile-img" [src]="user.avatarUrl || AVATAR"/>
+        <img class="profile-img" [src]="user?.avatarUrl || AVATAR"/>
         <button mat-button class="profile-menu" [matMenuTriggerFor]="menu" id="profile-btn">
           <div class="profile-menu__btn">
             <p>{{userName}}</p>

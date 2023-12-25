@@ -14,12 +14,13 @@
 
   <mat-form-field>
     <mat-label>Age</mat-label>
-    <input matInput placeholder="Enter your age" formControlName="age">
+    <input matInput placeholder="Enter your age" formControlName="age" pattern="[0-9]*">
+    <mat-error>Please enter only numeric values.</mat-error>
   </mat-form-field>
 
   <section class="actions">
     <button mat-raised-button routerLink="/">Cancel</button>
-    <button mat-raised-button color="primary" (click)="saveDataToDB()">Save</button>
+    <button mat-raised-button color="primary" (click)="saveDataToDB()" [disabled]="!form.valid">Save</button>
   </section>
 
 </div>

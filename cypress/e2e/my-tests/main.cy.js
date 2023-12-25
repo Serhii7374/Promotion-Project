@@ -1,15 +1,15 @@
-context('Main page', () => {
+describe('Main page', () => {
   const mockUser = {
-    email: 'email@mail.com',
-    uid: '123',
+    email: 'serg@gmail.com',
+    uid: 'OXGUwR3DnBcqKU1eHSTGYeBDRiH2',
     firstName: 'John',
-    lastName: 'Doe',
-    avatarUrl: 'avatar.jpg',
+    lastName: 'Conor',
+    avatarUrl: '',
     age: '33'
   };
 
   beforeEach(() => {
-    cy.visit('https://promotion-project-e8793.web.app', {
+    cy.visit('/#/login', {
       onBeforeLoad: (win) => {
         win.localStorage.setItem('user', JSON.stringify(mockUser));
       },
@@ -17,21 +17,35 @@ context('Main page', () => {
   });
 
   it('Should redirect to edit-info component', () => {
+    // cy.visit('https://promotion-project-e8793.web.app', {
+    //   onBeforeLoad: (win) => {
+    //     win.localStorage.setItem('user', JSON.stringify(mockUser));
+    //   },
+    // });
     cy.get('#profile-btn').should('exist').should('be.visible');
     cy.get('#profile-btn').click();
     cy.get('#profile-edit-btn').should('exist').should('be.visible');
     cy.get('#profile-edit-btn').contains('Edit Profile').click();
-
-    cy.location('pathname').should('include', '/account');
+    cy.url().should('eq', 'https://promotion-project-e8793.web.app/account');
   });
 
   it('Should redirect to add-new-article component', () => {
+    // cy.visit('https://promotion-project-e8793.web.app', {
+    //   onBeforeLoad: (win) => {
+    //     win.localStorage.setItem('user', JSON.stringify(mockUser));
+    //   },
+    // });
     cy.get('#add-article-btn').should('exist').should('be.visible');
     cy.get('#add-article-btn').click();
-    cy.location('pathname').should('include', '/app-add-new-article');
+    cy.url().should('eq', 'https://promotion-project-e8793.web.app/app-add-new-article');
   });
 
   it('Should create article and redirect to main page', () => {
+    cy.visit('https://promotion-project-e8793.web.app', {
+      onBeforeLoad: (win) => {
+        win.localStorage.setItem('user', JSON.stringify(mockUser));
+      },
+    });
     cy.get('#add-article-btn').click();
     cy.get('[formControlName=title]').type('e2e test title');
     cy.get('[formControlName=category]').click();

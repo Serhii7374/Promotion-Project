@@ -16,6 +16,7 @@
           <mat-form-field>
             <mat-label>Name</mat-label>
             <input matInput placeholder="Enter your name" formControlName="name">
+            <mat-error>Name is required</mat-error>
           </mat-form-field>
 
           <mat-form-field>
@@ -27,12 +28,23 @@
         <mat-form-field>
           <mat-label>Email Address</mat-label>
           <input matInput placeholder="Enter your email address" formControlName="email">
+          <mat-error *ngIf="form.controls.email.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="form.controls.email.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input matInput placeholder="Enter your password" formControlName="password" #password>
-          <mat-error *ngIf="password.minLength">The required length of the password is 6 characters</mat-error>
+          <input matInput placeholder="Enter your password" formControlName="password">
+          <mat-error *ngIf="form.controls.password.hasError('minlength')">
+            The required length of the password is 6 characters
+          </mat-error>
+          <mat-error *ngIf="form.controls.password.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field>

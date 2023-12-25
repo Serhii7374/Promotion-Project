@@ -14,10 +14,10 @@ import { Router } from '@angular/router';
 })
 export class MainComponent {
   protected readonly AVATAR = AVATAR;
-
   userName: string = '';
   searchText: string = '';
   user!: IUserData;
+
   constructor(private auth: AuthService, private articleService: ArticleService, private router: Router) {
     this.getUserData();
   }
@@ -39,7 +39,6 @@ export class MainComponent {
 
   search(): void {
     this.articleService.setSearchQuery(this.searchText);
-    this.searchText = '';
     this.router.navigate(['/']);
   }
 }

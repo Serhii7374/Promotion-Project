@@ -9,18 +9,10 @@ import { authGuard } from './shared/guards/auth.guard';
 import { DashboardComponent } from './pages/main/components/dashboard/dashboard.component';
 import { AddNewArticleComponent } from './pages/main/components/add-new-article/add-new-article.component';
 import { AccountComponent } from './pages/main/components/account/account.component';
+import { ArticleComponent } from './pages/main/components/article/article.component';
+import { EditArticleComponent } from './pages/main/components/edit-article/edit-article.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: MainComponent,
-    canActivate: [authGuard],
-    children: [
-      { path: '', component: DashboardComponent },
-      { path: 'app-add-new-article', component: AddNewArticleComponent },
-      { path: 'account', component: AccountComponent },
-    ]
-  },
   {
     path: 'login',
     component: LoginComponent
@@ -36,6 +28,22 @@ const routes: Routes = [
   {
     path: 'terms',
     component: TermsPolicyPageComponent
+  },
+  {
+    path: '',
+    component: MainComponent,
+    canActivate: [authGuard],
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'account', component: AccountComponent },
+      { path: 'article/:id', component: ArticleComponent },
+      { path: 'add-new-article', component: AddNewArticleComponent },
+      { path: 'edit-article/:id', component: EditArticleComponent },
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '',
   }
 ];
 

@@ -1,0 +1,11 @@
+<div class="wrapper" *ngIf="(article$ | async) as article">
+
+  <h1>{{article.title}}</h1>
+
+  <div class="article-img">
+    <img [src]="article.imageUrl || DEFAULT_BACKGROUND" alt="article image">
+  </div>
+
+  <div class="article-text">{{article.text}}</div>
+
+</div>

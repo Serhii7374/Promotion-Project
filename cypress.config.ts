@@ -3,7 +3,8 @@ import { defineConfig } from 'cypress';
 export default defineConfig({
 
   e2e: {
-    baseUrl: 'https://promotion-project-e8793.web.app/'
+    // baseUrl: 'https://promotion-project-e8793.web.app/'
+    baseUrl: 'http://localhost:4200/'
   },
 
   component: {
