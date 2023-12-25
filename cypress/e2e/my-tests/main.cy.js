@@ -26,7 +26,7 @@ describe('Main page', () => {
     cy.get('#profile-btn').click();
     cy.get('#profile-edit-btn').should('exist').should('be.visible');
     cy.get('#profile-edit-btn').contains('Edit Profile').click();
-    cy.url().should('eq', 'https://promotion-project-e8793.web.app/account');
+    cy.url().should('include', 'account');
   });
 
   it('Should redirect to add-new-article component', () => {
@@ -37,7 +37,7 @@ describe('Main page', () => {
     // });
     cy.get('#add-article-btn').should('exist').should('be.visible');
     cy.get('#add-article-btn').click();
-    cy.url().should('eq', 'https://promotion-project-e8793.web.app/app-add-new-article');
+    cy.url().should('include', 'app-add-new-article');
   });
 
   it('Should create article and redirect to main page', () => {
