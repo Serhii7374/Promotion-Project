@@ -1,22 +1,15 @@
-describe('Main page', () => {
-  const mockUser = {
-    email: 'serg@gmail.com',
-    uid: 'OXGUwR3DnBcqKU1eHSTGYeBDRiH2',
-    firstName: 'John',
-    lastName: 'Conor',
-    avatarUrl: '',
-    age: '33'
-  };
+context('Main page', () => {
 
-  beforeEach(() => {
-    cy.visit('/#/', {
-      onBeforeLoad: (win) => {
-        win.localStorage.setItem('user', JSON.stringify(mockUser));
-      },
-    });
+  it('Should redirect to main page after success login', () => {
+    cy.visit('/#/login');
+    cy.get('[formControlName=email]').type('serg@gmail.com');
+    cy.get('[formControlName=password]').type('Ivanytskyi');
+    cy.get('.login-btn').click();
+    cy.url().should('not.include', '/login');
   });
 
   it('Should redirect to edit-info component', () => {
+    cy.visit('/');
     cy.get('#profile-btn').should('exist').should('be.visible');
     cy.get('#profile-btn').click();
     cy.get('#profile-edit-btn').should('exist').should('be.visible');
@@ -25,12 +18,14 @@ describe('Main page', () => {
   });
 
   it('Should redirect to add-new-article component', () => {
+    cy.visit('/');
     cy.get('#add-article-btn').should('exist').should('be.visible');
     cy.get('#add-article-btn').click();
     cy.url().should('include', 'add-new-article');
   });
 
   it('Should create article and redirect to main page', () => {
+    cy.visit('/');
     cy.get('#add-article-btn').click();
     cy.get('[formControlName=title]').type('e2e test title');
     cy.get('[formControlName=title]').should('include.value', 'e2e test title');
